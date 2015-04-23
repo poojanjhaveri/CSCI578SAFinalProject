@@ -8,8 +8,8 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- Accessing camera hardware -->
     <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -32,6 +32,14 @@
         <activity
             android:name=".PostThoughtActivity"
             android:label="@string/title_activity_post_thought" >
+        </activity>
+        <activity
+            android:name=".PhotoActivity"
+            android:label="@string/title_activity_photo" >
+        </activity>
+        <activity
+            android:name="edu.usc.poojan.PhotoComponent.PhotoActivity"
+            android:label="@string/title_activity_photo" >
         </activity>
     </application>
 

@@ -2,6 +2,7 @@ package edu.usc.poojan.trojanow;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -36,6 +37,7 @@ public class ActionBarTabController extends FragmentActivity implements ActionBa
         actionBar.setHomeButtonEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
+
         // Adding Tabs
         for (String tab_name : tabs) {
             actionBar.addTab(actionBar.newTab().setText(tab_name)
@@ -50,6 +52,23 @@ public class ActionBarTabController extends FragmentActivity implements ActionBa
         getMenuInflater().inflate(R.menu.menu_feed, menu);
         return true;
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.post_button:
+            {
+                Intent i = new Intent(this,PostThoughtActivity.class);
+                startActivity(i);
+            }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {

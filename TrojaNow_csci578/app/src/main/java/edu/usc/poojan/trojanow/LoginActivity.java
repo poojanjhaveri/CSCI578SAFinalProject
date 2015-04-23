@@ -75,10 +75,19 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button RegisterButton = (Button) findViewById(R.id.registerButton);
+
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+        RegisterButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(),RegisterActivity.class);
+                startActivity(i);
             }
         });
 

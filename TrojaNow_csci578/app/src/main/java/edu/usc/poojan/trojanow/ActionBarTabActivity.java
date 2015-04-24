@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import edu.usc.poojan.tabs.adapter.TabsPagerAdapter;
 
 
-public class ActionBarTabController extends FragmentActivity implements ActionBar.TabListener {
+public class ActionBarTabActivity extends FragmentActivity implements ActionBar.TabListener {
 
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;

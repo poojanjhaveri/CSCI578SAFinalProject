@@ -27,7 +27,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -305,7 +304,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
             if (success) {
                 System.out.println("Logged In");
-                Intent intent = new Intent(this.activity,ActionBarTabController.class);
+                Intent intent = new Intent(this.activity,ActionBarTabActivity.class);
                 startActivity(intent);
 
             } else {

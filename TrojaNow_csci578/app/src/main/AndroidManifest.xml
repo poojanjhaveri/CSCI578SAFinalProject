@@ -25,7 +25,7 @@
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name=".ActionBarTabController"
+            android:name=".ActionBarTabActivity"
             android:label="@string/title_activity_feed" >
         </activity>
         <activity

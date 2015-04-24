@@ -73,6 +73,8 @@ public class ActionBarTabController extends FragmentActivity implements ActionBa
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
 
+        viewPager.setCurrentItem(tab.getPosition());
+
     }
 
     @Override

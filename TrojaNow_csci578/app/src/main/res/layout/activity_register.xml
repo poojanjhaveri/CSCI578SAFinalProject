@@ -7,5 +7,57 @@
     tools:context="edu.usc.poojan.trojanow.RegisterActivity">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TrojaNow"
+        android:id="@+id/textView2"
+        android:textAlignment="center"
+        android:textColor="#ffff000b"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:weightSum="1">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameTextField"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06"
+            android:hint="Name" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailTextField"
+            android:layout_weight="0.06"
+            android:inputType="textEmailAddress"
+            android:hint="Email Address" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passwordTextField"
+            android:layout_weight="0.06"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:id="@+id/registerUserButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06" />
+    </LinearLayout>
 
 </RelativeLayout>

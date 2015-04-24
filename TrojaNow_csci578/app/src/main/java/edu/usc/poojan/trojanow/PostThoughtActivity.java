@@ -1,10 +1,13 @@
 package edu.usc.poojan.trojanow;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import edu.usc.poojan.PhotoComponent.PhotoActivity;
 
 
 public class PostThoughtActivity extends Activity {
@@ -13,6 +16,15 @@ public class PostThoughtActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_thought);
+
+        Button PhotoButton = (Button) findViewById(R.id.cameraButton);
+        PhotoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(),PhotoActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override

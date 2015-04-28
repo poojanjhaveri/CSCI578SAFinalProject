@@ -26,9 +26,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.usc.poojan.Model.User;
 
 
 /**
@@ -64,6 +67,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
+
+        ParseObject.registerSubclass(User.class);
+
+        User newUser = new User();
 
         // Testing Parse - it works
         /*

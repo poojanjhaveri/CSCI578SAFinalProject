@@ -25,6 +25,15 @@ public class PostThoughtActivity extends Activity {
                 startActivity(i);
             }
         });
+
+        Button sensorButton = (Button) findViewById(R.id.temperature);
+        sensorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(),SensorActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -33,4 +42,6 @@ public class PostThoughtActivity extends Activity {
         getMenuInflater().inflate(R.menu.menu_post_thought, menu);
         return true;
     }
+
+
 }

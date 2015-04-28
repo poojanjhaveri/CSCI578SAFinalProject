@@ -18,7 +18,7 @@ public class SensorActivity extends Activity implements SensorEventListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.main);
+        setContentView(R.layout.activity_sensor);
 
         // Get an instance of the sensor service, and use that to get an instance of
         // a particular sensor.

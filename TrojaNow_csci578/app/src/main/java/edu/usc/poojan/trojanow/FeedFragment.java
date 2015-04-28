@@ -5,13 +5,20 @@ package edu.usc.poojan.trojanow;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -24,23 +31,28 @@ public class FeedFragment extends ListFragment {
         // Required empty public constructor
     }
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.fragment_feed2, container, false);
-//
-//
-//    }
-
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2" };
-        CustomRowAdapter adapter = new CustomRowAdapter(getActivity(),values);
-        setListAdapter(adapter);
+
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Thought");
+        query.orderByDescending("updatedAt");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> thoughtList, ParseException e) {
+                if (e == null) {
+
+
+                    CustomRowAdapter adapter = new CustomRowAdapter(getActivity(),thoughtList);
+                    setListAdapter(adapter);
+                } else {
+
+                    // Error
+                    Log.d("Thought", "Error: " + e.getMessage());
+                }
+            }
+        });
     }
 
 }

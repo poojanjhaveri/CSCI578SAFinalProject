@@ -8,18 +8,23 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
+import java.util.List;
+
 /**
  * Created by poojan on 4/28/15.
  */
 public class CustomRowAdapter extends ArrayAdapter<String> {
 
     private final Context context;
-    private final String[] values;
+    private final List values;
 
     private TextView tUserName;
     private TextView tContent;
 
-    public CustomRowAdapter(Context context, String[] values) {
+    public CustomRowAdapter(Context context, List values) {
         super(context, R.layout.rowlayout, values);
         this.context = context;
         this.values = values;
@@ -36,8 +41,10 @@ public class CustomRowAdapter extends ArrayAdapter<String> {
         tContent = (TextView) rowView.findViewById(R.id.content);
 //        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
 
-        tUserName.setText(values[position]);
-
+        //Parse Object
+        ParseObject pobject = (ParseObject)values.get(position);
+     //   tUserName.setText(pobject.get("username").toString());
+        tContent.setText(pobject.get("content").toString());
         return rowView;
     }
 

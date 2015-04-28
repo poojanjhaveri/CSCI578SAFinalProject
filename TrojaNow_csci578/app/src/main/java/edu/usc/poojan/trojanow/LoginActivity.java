@@ -65,13 +65,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Parse.enableLocalDatastore(getApplicationContext());
+//        Parse.enableLocalDatastore(getApplicationContext());
         Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
 
         ParseObject.registerSubclass(User.class);
-
-        User newUser = new User();
-
         // Testing Parse - it works
         /*
         ParseObject testObject = new ParseObject("TestObject");

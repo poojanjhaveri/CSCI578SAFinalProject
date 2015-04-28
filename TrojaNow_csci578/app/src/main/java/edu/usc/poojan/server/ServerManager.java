@@ -10,8 +10,7 @@ public class ServerManager {
     static String PARSE_CLIENT_KEY = "aRm6wWylGELtNY6vmzk5sviXRw31axHoZJFTH2JL";
 
     public ServerManager (Object context) {
-        Parse.enableLocalDatastore( context);
-        Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
+     //   Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
 
         // Testing Parse - it works
         /*

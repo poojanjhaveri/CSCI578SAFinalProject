@@ -25,8 +25,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.LogInCallback;
 import com.parse.Parse;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,17 +45,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     static String PARSE_APPLICATION_ID = "fI9EePHkFfD9GHUmNkoQtF9fgSqTFin3wyeupWuF";
     static String PARSE_CLIENT_KEY = "aRm6wWylGELtNY6vmzk5sviXRw31axHoZJFTH2JL";
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "p@p.com:poojan", "bar@example.com:world", "trinagre@usc.edu:trina"
-    };
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
-    private UserLoginTask mAuthTask = null;
+//    private UserLoginTask mAuthTask = null;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -66,8 +63,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         setContentView(R.layout.activity_login);
 
         Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
-
         ParseObject.registerSubclass(User.class);
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            // do stuff with the user
+            Intent intent = new Intent(getApplicationContext(),ActionBarTabActivity.class);
+            startActivity(intent);
+        }
 
 
         // Set up the login form.
@@ -118,9 +121,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * errors are presented and no actual login attempt is made.
      */
     public void attemptLogin() {
-        if (mAuthTask != null) {
-            return;
-        }
+//        if (mAuthTask != null) {
+//            return;
+//        }
 
         // Reset errors.
         mEmailView.setError(null);
@@ -152,6 +155,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             cancel = true;
         }
 
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_field_required));
+            focusView = mPasswordView;
+            cancel = true;
+        }
+
         if (cancel) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
@@ -159,15 +168,40 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
+
+        //    mAuthTask = new UserLoginTask(email, password,this);
+        //    mAuthTask.execute((Void) null);
+
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password,this);
-            mAuthTask.execute((Void) null);
+            ParseUser.logInInBackground(email, password, new LogInCallback() {
+                public void done(ParseUser user, ParseException e) {
+
+                    // Hide the progress activity
+                    showProgress(false);
+
+                    if (user != null) {
+                        // The user is logged in.
+                        System.out.println("Logged In");
+                        Intent intent = new Intent(getApplicationContext(),ActionBarTabActivity.class);
+                        startActivity(intent);
+
+                    } else {
+                        // Signup failed. Look at the ParseException to see what happened.
+                        mPasswordView.setError(getString(R.string.error_incorrect_password));
+                        mPasswordView.requestFocus();
+
+                    }
+                }
+            });
+
+
+
+
         }
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
+        return email.contains("@usc.edu");
     }
 
     private boolean isPasswordValid(String password) {
@@ -269,63 +303,63 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-        public LoginActivity activity;
-
-        UserLoginTask(String email, String password,LoginActivity l) {
-            mEmail = email;
-            mPassword = password;
-            this.activity=l;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
-            // TODO: register the new account here.
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            mAuthTask = null;
-            showProgress(false);
-
-            if (success) {
-                System.out.println("Logged In");
-                Intent intent = new Intent(this.activity,ActionBarTabActivity.class);
-                startActivity(intent);
-
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mAuthTask = null;
-            showProgress(false);
-        }
-    }
+//    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+//
+//        private final String mEmail;
+//        private final String mPassword;
+//        public LoginActivity activity;
+//
+//        UserLoginTask(String email, String password,LoginActivity l) {
+//            mEmail = email;
+//            mPassword = password;
+//            this.activity=l;
+//        }
+//
+//        @Override
+//        protected Boolean doInBackground(Void... params) {
+//
+////            try {
+////                showProgress(true);
+////                ParseUser user = ParseUser.logIn(mEmail,mPassword);
+////                if (user != null) {
+////                    // Hooray! The user is logged in.
+////
+////                    return true;
+////
+////                } else {
+////                    // Signup failed. Look at the ParseException to see what happened.
+////                    return false;
+////                }
+////            } catch (ParseException e) {
+////                e.printStackTrace();
+////                return false;
+////            }
+//
+//                return true;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(final Boolean success) {
+//            mAuthTask = null;
+//            showProgress(false);
+//
+//            if (success) {
+//                System.out.println("Logged In");
+//                Intent intent = new Intent(this.activity,ActionBarTabActivity.class);
+//                startActivity(intent);
+//
+//            } else {
+//                mPasswordView.setError(getString(R.string.error_incorrect_password));
+//                mPasswordView.requestFocus();
+//            }
+//        }
+//
+//        @Override
+//        protected void onCancelled() {
+//            mAuthTask = null;
+//            showProgress(false);
+//        }
+//    }
 }
 
 

@@ -53,7 +53,7 @@ public class PostThoughtActivity extends Activity {
                     String anonymousString = "Anonymous";
                     ParseUser currentUser = ParseUser.getCurrentUser();
 
-                    if(!anonymous.isActivated())
+                    if(!anonymous.isChecked())
                     {
                         anonymousString = currentUser.get("Name").toString();
                     }
@@ -61,7 +61,7 @@ public class PostThoughtActivity extends Activity {
                     ParseObject thought = new ParseObject("Thought");
                     thought.put("content", content.getText().toString());
                     thought.put("byUser", currentUser);
-                    thought.put("userName", anonymousString);
+                    thought.put("username", anonymousString);
                     try {
                         thought.save();
                     } catch (ParseException e) {

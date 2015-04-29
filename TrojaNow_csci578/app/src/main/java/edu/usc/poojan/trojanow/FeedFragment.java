@@ -35,8 +35,21 @@ public class FeedFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        queryForThoughts();
+    }
 
 
+    @Override
+    public void onResume() {
+
+        queryForThoughts();
+        super.onResume();
+    }
+
+
+
+    public void queryForThoughts()
+    {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Thought");
         query.orderByDescending("updatedAt");
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -56,3 +69,4 @@ public class FeedFragment extends ListFragment {
     }
 
 }
+

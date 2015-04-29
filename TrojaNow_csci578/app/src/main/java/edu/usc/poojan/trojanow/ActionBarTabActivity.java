@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.ParseUser;
+
 import edu.usc.poojan.tabs.adapter.TabsPagerAdapter;
 
 
@@ -62,6 +64,14 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
             {
                 Intent i = new Intent(this,PostThoughtActivity.class);
                 startActivity(i);
+            }
+            case R.id.logout_button:
+            {
+                // Log Out
+                ParseUser.logOut();
+                Intent intent = new Intent( getApplicationContext(), LoginActivity.class );
+                intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
+                startActivity( intent );
             }
                 return true;
             default:

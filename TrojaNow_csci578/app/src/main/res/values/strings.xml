@@ -23,5 +23,6 @@
     <string name="switch_anonymous">Anonymous</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_post">Post</string>
+    <string name="action_logout">Log Out</string>
 
 </resources>

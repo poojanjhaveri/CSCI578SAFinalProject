@@ -62,17 +62,7 @@ public class RegisterActivity extends Activity {
 
                               // Error Registering
 
-                              AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                              builder.setTitle("Error")
-                                      .setMessage(e.getMessage().toString())
-                                      .setCancelable(false)
-                                      .setNegativeButton("Okay",new DialogInterface.OnClickListener() {
-                                          public void onClick(DialogInterface dialog, int id) {
-                                              dialog.cancel();
-                                          }
-                                      });
-                              AlertDialog alert = builder.create();
-                              alert.show();
+
 
 
                           }
@@ -82,18 +72,7 @@ public class RegisterActivity extends Activity {
               else
               {
 
-                  // Alert message for missing value in textfield
-                  AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                  builder.setTitle("Invalid Input")
-                          .setMessage("Please enter all values")
-                          .setCancelable(false)
-                          .setNegativeButton("Close",new DialogInterface.OnClickListener() {
-                              public void onClick(DialogInterface dialog, int id) {
-                                  dialog.cancel();
-                              }
-                          });
-                  AlertDialog alert = builder.create();
-                  alert.show();
+
               }
         }
     });

@@ -43,7 +43,7 @@ public class CustomRowAdapter extends ArrayAdapter<String> {
 
         //Parse Object
         ParseObject pobject = (ParseObject)values.get(position);
-     //   tUserName.setText(pobject.get("username").toString());
+        tUserName.setText(pobject.get("username").toString());
         tContent.setText(pobject.get("content").toString());
         return rowView;
     }

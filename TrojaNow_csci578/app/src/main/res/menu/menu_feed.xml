@@ -4,4 +4,6 @@
     tools:context="edu.usc.poojan.trojanow.ActionBarTabActivity">
     <item android:id="@+id/post_button" android:title="@string/action_post"
         android:orderInCategory="100" app:showAsAction="always" />
+    <item android:id="@+id/logout_button" android:title="@string/action_logout"
+        android:orderInCategory="200" />
 </menu>

@@ -13,6 +13,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.ParseException;
 
+import edu.usc.poojan.Location.LocationActivity;
 import edu.usc.poojan.PhotoComponent.PhotoActivity;
 
 
@@ -23,20 +24,30 @@ public class PostThoughtActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_thought);
 
-        Button PhotoButton = (Button) findViewById(R.id.cameraButton);
-        PhotoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(),PhotoActivity.class);
-                startActivity(i);
-            }
-        });
+//        Button PhotoButton = (Button) findViewById(R.id.cameraButton);
+//        PhotoButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(view.getContext(),PhotoActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
         Button sensorButton = (Button) findViewById(R.id.temperature);
         sensorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(),SensorActivity.class);
+                startActivityForResult(i, 1);
+            }
+        });
+
+
+        Button locationButton = (Button) findViewById(R.id.location);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(),LocationActivity.class);
                 startActivityForResult(i, 1);
             }
         });
@@ -72,6 +83,7 @@ public class PostThoughtActivity extends Activity {
                     thought.put("username", anonymousString);
                     try {
                         thought.save();
+                        finish();
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -83,7 +95,6 @@ public class PostThoughtActivity extends Activity {
             }
         });
 
-
     }
 
 
@@ -92,18 +103,38 @@ public class PostThoughtActivity extends Activity {
         //super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 1 && resultCode == RESULT_OK){
             String sensorInfo = data.getStringExtra("SensorInfo");
-            System.out.println ("sensorInfo = " + sensorInfo);
-            if (sensorInfo.length() > 0) {
-                EditText content = (EditText) findViewById(R.id.editText);
-                String text = String.valueOf(content.getText());
+            if(sensorInfo!=null) {
+                System.out.println("sensorInfo = " + sensorInfo);
+                if (sensorInfo.length() > 0) {
+                    EditText content = (EditText) findViewById(R.id.editText);
+                    String text = String.valueOf(content.getText());
 
-                if (text.length() > 0) {
-                    text = text.concat(sensorInfo);
-                    content.setText(text);
-                } else {
-                    content.setText(sensorInfo);
+                    if (text.length() > 0) {
+                        text = text.concat(sensorInfo);
+                        content.setText(text);
+                    } else {
+                        content.setText(sensorInfo);
+                    }
                 }
             }
+
+            String locationInfo = data.getStringExtra("LocationInfo");
+            if(locationInfo!=null) {
+                System.out.println("locationInfo = " + locationInfo);
+                if (locationInfo.length() > 0) {
+                    EditText content = (EditText) findViewById(R.id.editText);
+                    String text = String.valueOf(content.getText());
+                    if (text.length() > 0) {
+                        text = text.concat(locationInfo);
+                        content.setText(text);
+                    } else {
+                        content.setText(locationInfo);
+                    }
+                }
+            }
+
+
+
         }
     }
 

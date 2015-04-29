@@ -27,5 +27,6 @@
     <string name="post_hint">What is on your mind?</string>
     <string name="sensor_cancel_button">Cancel</string>
     <string name="sensor_info_button">Include</string>
+    <string name="title_activity_location">Include Location</string>
 
 </resources>

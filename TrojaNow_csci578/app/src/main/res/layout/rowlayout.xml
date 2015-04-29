@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/userName"
-        android:layout_width="383dp"
+        android:layout_width="178dp"
         android:layout_height="31dp"
         android:text="userName"
         android:textSize="30px"
@@ -18,12 +18,23 @@
     </TextView>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="372dp"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/content"
-        android:layout_weight="4.13"
-        android:minLines="2"
-        android:minHeight="60dp" />
+        android:minLines="1"
+        android:minHeight="40dp"
+        android:maxLines="5"
+        android:maxWidth="60dp"
+        android:textSize="15dp"
+        android:textColor="#ffff4003" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/date"
+        android:textSize="10dp"
+        android:textStyle="italic" />
 
 </LinearLayout>

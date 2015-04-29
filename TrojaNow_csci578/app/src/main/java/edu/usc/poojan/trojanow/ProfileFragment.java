@@ -45,16 +45,12 @@ public class ProfileFragment extends ListFragment {
     @Override
     public void onResume() {
 
-
         //TODO : ProfileName set Text is not working. IT crashes
 //        TextView profileName = (TextView)getView().findViewById(R.id.profileName);
 //        profileName.setText(ParseUser.getCurrentUser().get("Name").toString());
         queryForThoughts();
         super.onResume();
     }
-
-
-
 
 
 
@@ -70,7 +66,6 @@ public class ProfileFragment extends ListFragment {
                     CustomRowAdapter adapter = new CustomRowAdapter(getActivity(),thoughtList);
                     setListAdapter(adapter);
                 } else {
-
                     // Error
                     Log.d("Thought", "Error: " + e.getMessage());
                 }

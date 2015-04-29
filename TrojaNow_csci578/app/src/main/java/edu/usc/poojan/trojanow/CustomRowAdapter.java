@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +26,8 @@ public class CustomRowAdapter extends ArrayAdapter<String> {
 
     private TextView tUserName;
     private TextView tContent;
+    private TextView tDate;
+
 
     public CustomRowAdapter(Context context, List values) {
         super(context, R.layout.rowlayout, values);
@@ -39,12 +44,21 @@ public class CustomRowAdapter extends ArrayAdapter<String> {
 
         tUserName = (TextView) rowView.findViewById(R.id.userName);
         tContent = (TextView) rowView.findViewById(R.id.content);
+        tDate = (TextView) rowView.findViewById(R.id.date);
 //        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
 
         //Parse Object
         ParseObject pobject = (ParseObject)values.get(position);
         tUserName.setText(pobject.get("username").toString());
         tContent.setText(pobject.get("content").toString());
+
+
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        Date date = pobject.getCreatedAt();
+        // Using DateFormat format method we can create a string
+        // representation of a date with the defined format.
+        tDate.setText(df.format(date));
+
         return rowView;
     }
 

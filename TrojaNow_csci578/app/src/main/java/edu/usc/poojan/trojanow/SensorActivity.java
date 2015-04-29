@@ -14,6 +14,9 @@ import android.view.MenuItem;
 public class SensorActivity extends Activity implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor mPressure;
+    private Sensor mTemperature;
+    private Sensor mLight;
+    private Sensor mHumidity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,9 @@ public class SensorActivity extends Activity implements SensorEventListener {
         // a particular sensor.
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mPressure = mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
+        mTemperature = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        mLight = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        mHumidity = mSensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
     }
 
 
@@ -51,7 +57,23 @@ public class SensorActivity extends Activity implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        float millibars_of_pressure = event.values[0];
+        //float millibars_of_pressure = event.values[0];
+        int type = event.sensor.getType();
+        switch (type) {
+        case Sensor.TYPE_PRESSURE:
+            System.out.println("SensorActivity: Pressure");
+            break;
+        case Sensor.TYPE_AMBIENT_TEMPERATURE:
+            System.out.println("SensorActivity: Pressure");
+            break;
+        case Sensor.TYPE_LIGHT:
+            System.out.println("SensorActivity: Pressure");
+            break;
+        case Sensor.TYPE_RELATIVE_HUMIDITY:
+            System.out.println("SensorActivity: Pressure");
+            break;
+
+        }
     }
 
     @Override
@@ -64,12 +86,21 @@ public class SensorActivity extends Activity implements SensorEventListener {
         // Register a listener for the sensor.
         super.onResume();
         mSensorManager.registerListener(this, mPressure, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mTemperature, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mHumidity, SensorManager.SENSOR_DELAY_NORMAL);
+
+
     }
 
     @Override
     protected void onPause() {
         // Be sure to unregister the sensor when the activity pauses.
         super.onPause();
-        mSensorManager.unregisterListener(this);
+        mSensorManager.unregisterListener(this, mPressure);
+        mSensorManager.unregisterListener(this, mTemperature);
+        mSensorManager.unregisterListener(this, mLight);
+        mSensorManager.unregisterListener(this, mHumidity);
+
     }
 }

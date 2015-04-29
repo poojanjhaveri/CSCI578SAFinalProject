@@ -41,6 +41,14 @@ public class PostThoughtActivity extends Activity {
             }
         });
 
+        Button cancelButton = (Button) findViewById(R.id.cancelbutton);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
         Button postButton = (Button) findViewById(R.id.postthoughtbutton);
         postButton.setOnClickListener(new View.OnClickListener() {
             @Override

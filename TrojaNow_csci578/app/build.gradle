@@ -4,6 +4,8 @@ android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
 
+ 
+
     defaultConfig {
         applicationId "edu.usc.poojan.trojanow"
         minSdkVersion 15
@@ -16,6 +18,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+        }
+
     }
 }
 

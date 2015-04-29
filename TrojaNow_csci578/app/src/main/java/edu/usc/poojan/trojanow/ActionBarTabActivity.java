@@ -65,6 +65,7 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
                 Intent i = new Intent(this,PostThoughtActivity.class);
                 startActivity(i);
             }
+            break;
             case R.id.logout_button:
             {
                 // Log Out
@@ -73,10 +74,10 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
                 intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 startActivity( intent );
             }
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            break;
         }
+
+        return true;
     }
 
 

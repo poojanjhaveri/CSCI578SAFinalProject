@@ -105,6 +105,9 @@ public class PhotoActivity extends Activity {
      * ------------ Helper Methods ----------------------
      * */
 
+
+
+
     /**
      * Creating file uri to store image/video
      */
@@ -112,9 +115,9 @@ public class PhotoActivity extends Activity {
 //        return Uri.fromFile(getOutputMediaFile(type));
 //    }
 
-    /**
-     * returning image / video
-     */
+//    /**
+//     * returning image / video
+//     */
 //    private static File getOutputMediaFile(int type) {
 //
 //        // External sdcard location

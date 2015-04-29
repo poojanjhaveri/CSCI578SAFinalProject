@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name=".SensorActivity"
-            android:label="@string/title_activity_sensor" >
+            android:label="Add Sensor Info" >
         </activity>
     </application>
 

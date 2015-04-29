@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sensor1"
         android:id="@+id/checkBoxSensor1"
-        android:checked="true"
+        android:checked="false"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

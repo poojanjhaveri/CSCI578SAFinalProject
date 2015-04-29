@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.content.Intent;
 
 import java.util.List;
 
@@ -142,8 +143,18 @@ public class SensorActivity extends Activity implements SensorEventListener {
                 if (fLight != 0) {
                     mInfo = mInfo.concat(" The light is " + fLight + " SI lux.");
                 }
+                if (fPressure != 0) {
+                    mInfo = mInfo.concat(" The pressure is " + fPressure + " hPa.");
+                }
+                if (fHumidity != 0) {
+                    mInfo = mInfo.concat(" The pressure is " + fHumidity + "%.");
+                }
                 System.out.println ("info = " + mInfo);
-                onBackPressed();
+
+                Intent intent = new Intent();
+                intent.putExtra("SensorInfo", mInfo);
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
 
@@ -177,22 +188,22 @@ public class SensorActivity extends Activity implements SensorEventListener {
         //float millibars_of_pressure = event.values[0];
         int type = event.sensor.getType();
         if (type == Sensor.TYPE_AMBIENT_TEMPERATURE) {
-            System.out.println("SensorActivity: Temperature");
+//            System.out.println("SensorActivity: Temperature");
             fTemperature = event.values[0];
         }
 
         if (type == Sensor.TYPE_LIGHT) {
-            System.out.println("SensorActivity: Light");
+//            System.out.println("SensorActivity: Light");
             fLight = event.values[0];
         }
 
         if (type == Sensor.TYPE_PRESSURE) {
-            System.out.println("SensorActivity: Pressure");
+//            System.out.println("SensorActivity: Pressure");
             fPressure = event.values[0];
         }
 
         if (type == Sensor.TYPE_RELATIVE_HUMIDITY) {
-            System.out.println("SensorActivity: Humidity");
+//            System.out.println("SensorActivity: Humidity");
             fHumidity = event.values[0];
         }
 

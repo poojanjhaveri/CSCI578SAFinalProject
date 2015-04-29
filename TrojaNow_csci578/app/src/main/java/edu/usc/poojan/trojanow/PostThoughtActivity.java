@@ -37,7 +37,7 @@ public class PostThoughtActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(),SensorActivity.class);
-                startActivity(i);
+                startActivityForResult(i, 1);
             }
         });
 
@@ -86,5 +86,25 @@ public class PostThoughtActivity extends Activity {
 
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1 && resultCode == RESULT_OK){
+            String sensorInfo = data.getStringExtra("SensorInfo");
+            System.out.println ("sensorInfo = " + sensorInfo);
+            if (sensorInfo.length() > 0) {
+                EditText content = (EditText) findViewById(R.id.editText);
+                String text = String.valueOf(content.getText());
+
+                if (text.length() > 0) {
+                    text = text.concat(sensorInfo);
+                    content.setText(text);
+                } else {
+                    content.setText(sensorInfo);
+                }
+            }
+        }
+    }
 
 }

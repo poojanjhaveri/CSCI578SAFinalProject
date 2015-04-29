@@ -25,5 +25,7 @@
     <string name="button_post">Post</string>
     <string name="action_logout">Log Out</string>
     <string name="post_hint">What is on your mind?</string>
+    <string name="sensor_cancel_button">Cancel</string>
+    <string name="sensor_info_button">Include</string>
 
 </resources>

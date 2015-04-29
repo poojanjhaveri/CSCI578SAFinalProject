@@ -33,7 +33,8 @@
         android:layout_alignParentStart="true"
         android:width="120dp"
         android:paddingTop="10dp"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/textsize_button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -44,7 +45,8 @@
         android:width="120dp"
         android:paddingTop="10dp"
         android:layout_below="@+id/editText"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/textsize_button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -56,7 +58,8 @@
         android:width="120dp"
         android:paddingTop="10dp"
         android:layout_below="@+id/editText"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/textsize_button" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -72,7 +75,7 @@
         android:paddingBottom="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textSize="@dimen/textsize_button"
         android:layout_marginTop="40dp" />
 
     <Button
@@ -83,7 +86,8 @@
         android:width="120dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textsize_button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -93,5 +97,6 @@
         android:width="120dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textSize="@dimen/textsize_button" />
 </RelativeLayout>

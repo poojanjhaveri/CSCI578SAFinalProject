@@ -15,7 +15,8 @@
         android:checked="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textsize_checkbox" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -25,7 +26,8 @@
         android:checked="false"
         android:layout_below="@+id/checkBoxSensor1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textsize_checkbox" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -35,7 +37,8 @@
         android:checked="false"
         android:layout_below="@+id/checkBoxSensor2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textsize_checkbox" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -45,6 +48,31 @@
         android:checked="false"
         android:layout_below="@+id/checkBoxSensor3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textsize_checkbox" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor_cancel_button"
+        android:id="@+id/sensorcancelbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:width="120dp"
+        android:textSize="@dimen/textsize_button" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor_info_button"
+        android:id="@+id/sensorinfobutton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:width="120dp"
+        android:textSize="@dimen/textsize_button" />
 
 </RelativeLayout>

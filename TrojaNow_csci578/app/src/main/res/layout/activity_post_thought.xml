@@ -37,18 +37,17 @@
         android:layout_height="wrap_content"
         android:text="@string/button_location"
         android:id="@+id/location"
-        android:layout_alignTop="@+id/cameraButton"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:layout_above="@+id/anoymousSwitch"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_temperature"
         android:id="@+id/temperature"
-        android:layout_alignTop="@+id/location"
-        android:layout_toRightOf="@+id/location"
-        android:layout_toEndOf="@+id/location" />
+        android:layout_above="@+id/anoymousSwitch"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -62,8 +61,8 @@
         android:paddingTop="10dp"
         android:height="50dp"
         android:paddingBottom="10dp"
-        android:layout_alignRight="@+id/temperature"
-        android:layout_alignEnd="@+id/temperature" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -80,10 +79,8 @@
         android:layout_height="wrap_content"
         android:text="@string/button_post"
         android:id="@+id/postthoughtbutton"
+        android:width="150dp"
         android:layout_below="@+id/anoymousSwitch"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/location"
-        android:layout_toEndOf="@+id/location"
-        android:width="150dp" />
+        android:layout_toEndOf="@+id/location" />
 </RelativeLayout>

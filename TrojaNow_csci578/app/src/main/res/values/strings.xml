@@ -19,7 +19,7 @@
     <string name="sensor4">Humidity</string>
     <string name="button_photo">Photo</string>
     <string name="button_location">Location</string>
-    <string name="button_temperature">Temperature</string>
+    <string name="button_temperature">Sensor</string>
     <string name="switch_anonymous">Anonymous</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_post">Post</string>

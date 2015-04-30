@@ -116,7 +116,7 @@ public class LocationActivity extends Activity implements LocationListener {
 
         try {
             addresses = geocoder.getFromLocation(fLat, fLong, 1);
-            String city = addresses.get(0).getLocality() + ", " + addresses.get(0).getAdminArea();
+            String city = addresses.get(0).getLocality() + ", " + addresses.get(0).getAdminArea() + ".";
             cityText.setText(city);
 
         } catch (IOException e) {

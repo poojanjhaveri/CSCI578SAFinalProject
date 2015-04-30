@@ -24,7 +24,7 @@ public class SensorActivity extends Activity implements SensorEventListener {
     private Sensor mLight;
     private Sensor mPressure;
     private Sensor mHumidity;
-    private String mInfo;
+    private StringBuilder mInfo;
     private float  fTemperature = 0;
     private float  fLight = 0;
     private float  fPressure = 0;
@@ -137,33 +137,34 @@ public class SensorActivity extends Activity implements SensorEventListener {
         sensorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mInfo = "";
+                mInfo = new StringBuilder();
                 if (fTemperature != 0) {
-                    mInfo = mInfo.concat(" The temperature is " + fTemperature + " degrees Celsius.");
+                    mInfo = mInfo.append(" The temperature is " + String.format("%.2f", fTemperature) + " degrees Celsius.");
                 }
                 if (fLight != 0) {
+                    String sLight = String.format("%.2f", fLight);
                     if (fLight < 50) {
-                        mInfo = mInfo.concat(" It's dark (" + fLight + " lux).");
+                        mInfo = mInfo.append(" It's dark (" + sLight + " lux).");
                     } else if (fLight < 500) {
-                        mInfo = mInfo.concat(" It's not bright (" + fLight + " lux).");
+                        mInfo = mInfo.append(" It's not bright (" + sLight + " lux).");
                     } else if (fLight < 1000) {
-                        mInfo = mInfo.concat(" It's light (" + fLight + " lux).");
+                        mInfo = mInfo.append(" It's light (" + sLight + " lux).");
                     } else if (fLight < 3200) {
-                        mInfo = mInfo.concat(" It's bright (" + fLight + " lux).");
+                        mInfo = mInfo.append(" It's bright (" + sLight + " lux).");
                     } else {
-                        mInfo = mInfo.concat(" It's very bright (" + fLight + " lux).");
+                        mInfo = mInfo.append(" It's very bright (" + sLight + " lux).");
                     }
                 }
                 if (fPressure != 0) {
-                    mInfo = mInfo.concat(" The pressure is " + fPressure + " hPa.");
+                    mInfo = mInfo.append(" The pressure is " + String.format("%.2f", fPressure) + " hPa.");
                 }
                 if (fHumidity != 0) {
-                    mInfo = mInfo.concat(" The humidity is " + fHumidity + "%.");
+                    mInfo = mInfo.append(" The humidity is " + fHumidity + "%.");
                 }
                 System.out.println ("info = " + mInfo);
 
                 Intent intent = new Intent();
-                intent.putExtra("SensorInfo", mInfo);
+                intent.putExtra("SensorInfo", mInfo.toString());
                 setResult(RESULT_OK, intent);
                 finish();
             }

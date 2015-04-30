@@ -11,8 +11,8 @@
     <string name="title_activity_register">Register New User</string>
     <string name="title_activity_post_thought">Post Thought</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_photo">Photo Activity</string>
-    <string name="title_activity_sensor">SensorActivity</string>
+    <string name="title_activity_photo">Photo</string>
+    <string name="title_activity_sensor">Sensors</string>
     <string name="sensor1">Temperature</string>
     <string name="sensor2">Light</string>
     <string name="sensor3">Pressure</string>
@@ -26,7 +26,12 @@
     <string name="action_logout">Log Out</string>
     <string name="post_hint">What is on your mind?</string>
     <string name="sensor_cancel_button">Cancel</string>
-    <string name="sensor_info_button">Include</string>
-    <string name="title_activity_location">Include Location</string>
+    <string name="sensor_info_button">Add</string>
+    <string name="title_activity_location">Location</string>
+    <string name="button_add">Add</string>
+    <string name="label_city">City</string>
+    <string name="label_longitude">Longitude</string>
+    <string name="label_latitude">Latitude</string>
+    <string name="button_register">Register</string>
 
 </resources>

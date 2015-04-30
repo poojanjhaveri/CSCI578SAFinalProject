@@ -10,20 +10,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Latitude"
+        android:text="@string/label_latitude"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="38dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Longitude"
+        android:text="@string/label_longitude"
         android:id="@+id/textView3"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -51,9 +51,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="City"
+        android:text="@string/label_city"
         android:id="@+id/textView4"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -71,19 +71,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
+        android:text="@string/button_cancel"
         android:id="@+id/cancelButton"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Include"
+        android:text="@string/button_add"
         android:id="@+id/includeButton"
-        android:layout_alignTop="@+id/cancelButton"
-        android:layout_toRightOf="@+id/cancelButton"
-        android:layout_toEndOf="@+id/cancelButton" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

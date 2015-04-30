@@ -14,7 +14,7 @@
         android:text="TrojaNow"
         android:id="@+id/textView2"
         android:textAlignment="center"
-        android:textColor="#ffff000b"
+        android:textColor="@color/color_red"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textStyle="bold" />
@@ -33,7 +33,9 @@
             android:id="@+id/nameTextField"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.06"
-            android:hint="Name" />
+            android:hint="Name"
+            android:layout_marginTop="20dp"
+            android:typeface="monospace" />
 
         <EditText
             android:layout_width="match_parent"
@@ -41,7 +43,8 @@
             android:id="@+id/emailTextField"
             android:layout_weight="0.06"
             android:inputType="textEmailAddress"
-            android:hint="Email Address" />
+            android:hint="Email Address"
+            android:typeface="monospace" />
 
         <EditText
             android:layout_width="match_parent"
@@ -49,15 +52,17 @@
             android:id="@+id/passwordTextField"
             android:layout_weight="0.06"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:typeface="monospace" />
 
         <Button
-            android:layout_width="137dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="Register"
             android:id="@+id/registerUserButton"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.06" />
+            android:layout_weight="0"
+            android:layout_marginTop="40dp" />
     </LinearLayout>
 
 </RelativeLayout>

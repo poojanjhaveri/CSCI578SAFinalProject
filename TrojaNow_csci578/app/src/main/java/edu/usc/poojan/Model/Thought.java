@@ -1,4 +1,4 @@
-package edu.usc.poojan.Model;
+package edu.usc.poojan.model;
 
 /**
  * Created by poojan on 4/28/15.

@@ -1,4 +1,4 @@
-package edu.usc.poojan.Location;
+package edu.usc.poojan.trojanow;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,10 +9,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -26,9 +23,9 @@ import edu.usc.poojan.trojanow.R;
 
 public class LocationActivity extends Activity implements LocationListener {
 
-    private TextView latituteField;
+    private TextView latitudeField;
     private TextView longitudeField;
-    private TextView City;
+    private TextView cityText;
     private LocationManager locationManager;
     private String provider;
 
@@ -38,9 +35,9 @@ public class LocationActivity extends Activity implements LocationListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        latituteField = (TextView) findViewById(R.id.latitude);
+        latitudeField = (TextView) findViewById(R.id.latitude);
         longitudeField = (TextView) findViewById(R.id.longitude);
-        City = (TextView) findViewById(R.id.city);
+        cityText = (TextView) findViewById(R.id.city);
 
         // Get the location manager
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -55,7 +52,7 @@ public class LocationActivity extends Activity implements LocationListener {
             System.out.println("Provider " + provider + " has been selected.");
             onLocationChanged(location);
         } else {
-            latituteField.setText("Location not available");
+            latitudeField.setText("Location not available");
             longitudeField.setText("Location not available");
         }
 
@@ -73,9 +70,9 @@ public class LocationActivity extends Activity implements LocationListener {
             public void onClick(View view) {
 
                 String mcity ="";
-                if(City.getText().length()>0)
+                if(cityText.getText().length()>0)
                 {
-                    mcity=new String(" in "+City.getText().toString());
+                    mcity=new String(" in "+ cityText.getText().toString());
                 }
 
                 System.out.println ("city = " + mcity);
@@ -108,19 +105,21 @@ public class LocationActivity extends Activity implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        int lat = (int) (location.getLatitude());
-        int lng = (int) (location.getLongitude());
-        latituteField.setText(String.valueOf(lat));
-        longitudeField.setText(String.valueOf(lng));
+        double fLat = location.getLatitude();
+        double fLong = location.getLongitude();
+        int iLat = (int) fLat;
+        int iLong = (int) fLong;
+        latitudeField.setText(String.valueOf(iLat));
+        longitudeField.setText(String.valueOf(iLong));
 
         Geocoder geocoder;
         List<Address> addresses;
         geocoder = new Geocoder(this, Locale.getDefault());
 
         try {
-            addresses = geocoder.getFromLocation(lat, lng, 1);
-            String city = addresses.get(0).getLocality()+","+addresses.get(0).getAdminArea();
-            City.setText(city);
+            addresses = geocoder.getFromLocation(fLat, fLong, 1);
+            String city = addresses.get(0).getLocality() + ", " + addresses.get(0).getAdminArea();
+            cityText.setText(city);
 
         } catch (IOException e) {
             e.printStackTrace();

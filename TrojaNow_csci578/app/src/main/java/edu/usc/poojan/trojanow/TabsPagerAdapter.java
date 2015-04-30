@@ -1,4 +1,4 @@
-package edu.usc.poojan.tabs.adapter;
+package edu.usc.poojan.trojanow;
 
 /**
  * Created by poojan on 4/20/15.

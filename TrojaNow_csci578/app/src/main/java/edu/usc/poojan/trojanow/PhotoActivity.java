@@ -1,4 +1,4 @@
-package edu.usc.poojan.PhotoComponent;
+package edu.usc.poojan.trojanow;
 
 import android.app.Activity;
 import android.content.Intent;

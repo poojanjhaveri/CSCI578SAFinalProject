@@ -1,4 +1,4 @@
-package edu.usc.poojan.Model;
+package edu.usc.poojan.model;
 
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;

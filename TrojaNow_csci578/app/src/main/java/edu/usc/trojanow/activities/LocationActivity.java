@@ -107,8 +107,8 @@ public class LocationActivity extends Activity implements LocationListener {
         double fLong = location.getLongitude();
         int iLat = (int) fLat;
         int iLong = (int) fLong;
-        latitudeField.setText(String.valueOf(iLat));
-        longitudeField.setText(String.valueOf(iLong));
+        latitudeField.setText(String.format("%.2f", fLat));
+        longitudeField.setText(String.format("%.2f", fLong));
 
         Geocoder geocoder;
         List<Address> addresses;

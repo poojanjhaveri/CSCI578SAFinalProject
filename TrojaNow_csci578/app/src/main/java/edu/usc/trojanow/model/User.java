@@ -10,10 +10,14 @@ import com.parse.LogInCallback;
  */
 public class User extends ParseUser {
 
+    static public ParseUser getCurrentUser() {
+        return ParseUser.getCurrentUser();
+    }
+
     public void register() {
 
-    this.signUpInBackground(new SignUpCallback() {
-        public void done(ParseException e) {
+        this.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
             if (e == null) {
                 System.out.println("register successful");
             } else {
@@ -21,8 +25,8 @@ public class User extends ParseUser {
                 // to figure out what went wrong
                 System.out.println("unable to register at this time");
             }
-        }
-    });
+            }
+        });
 
     }
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.usc.trojanow.activities.ActionBarTabActivity">
     <item android:id="@+id/post_button" android:title="@string/action_post"
-        android:orderInCategory="100" app:showAsAction="always" />
+        android:orderInCategory="100" app:showAsAction="ifRoom" />
     <item android:id="@+id/logout_button" android:title="@string/action_logout"
         android:orderInCategory="200" />
 </menu>

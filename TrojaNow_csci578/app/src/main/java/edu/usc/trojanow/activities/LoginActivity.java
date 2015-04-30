@@ -120,9 +120,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
      * errors are presented and no actual login attempt is made.
      */
     public void attemptLogin() {
-//        if (mAuthTask != null) {
-//            return;
-//        }
 
         // Reset errors.
         mEmailView.setError(null);
@@ -192,9 +189,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                     }
                 }
             });
-
-
-
 
         }
     }
@@ -298,67 +292,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         mEmailView.setAdapter(adapter);
     }
 
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-//    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-//
-//        private final String mEmail;
-//        private final String mPassword;
-//        public LoginActivity activity;
-//
-//        UserLoginTask(String email, String password,LoginActivity l) {
-//            mEmail = email;
-//            mPassword = password;
-//            this.activity=l;
-//        }
-//
-//        @Override
-//        protected Boolean doInBackground(Void... params) {
-//
-////            try {
-////                showProgress(true);
-////                ParseUser user = ParseUser.logIn(mEmail,mPassword);
-////                if (user != null) {
-////                    // Hooray! The user is logged in.
-////
-////                    return true;
-////
-////                } else {
-////                    // Signup failed. Look at the ParseException to see what happened.
-////                    return false;
-////                }
-////            } catch (ParseException e) {
-////                e.printStackTrace();
-////                return false;
-////            }
-//
-//                return true;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(final Boolean success) {
-//            mAuthTask = null;
-//            showProgress(false);
-//
-//            if (success) {
-//                System.out.println("Logged In");
-//                Intent intent = new Intent(this.activity,ActionBarTabActivity.class);
-//                startActivity(intent);
-//
-//            } else {
-//                mPasswordView.setError(getString(R.string.error_incorrect_password));
-//                mPasswordView.requestFocus();
-//            }
-//        }
-//
-//        @Override
-//        protected void onCancelled() {
-//            mAuthTask = null;
-//            showProgress(false);
-//        }
-//    }
+
 }
 
 

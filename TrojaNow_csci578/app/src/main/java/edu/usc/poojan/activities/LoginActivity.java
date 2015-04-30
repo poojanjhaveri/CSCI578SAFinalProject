@@ -1,4 +1,4 @@
-package edu.usc.poojan.trojanow;
+package edu.usc.poojan.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

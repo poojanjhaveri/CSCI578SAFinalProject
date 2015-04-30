@@ -1,10 +1,8 @@
-package edu.usc.poojan.trojanow;
+package edu.usc.poojan.activities;
 
 /**
  * Created by poojan on 4/20/15.
  */
-import edu.usc.poojan.trojanow.FeedFragment;
-import edu.usc.poojan.trojanow.ProfileFragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

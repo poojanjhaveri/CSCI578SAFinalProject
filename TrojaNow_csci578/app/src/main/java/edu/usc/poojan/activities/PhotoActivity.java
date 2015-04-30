@@ -1,23 +1,12 @@
-package edu.usc.poojan.trojanow;
+package edu.usc.poojan.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
-
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import edu.usc.poojan.trojanow.R;
 
 public class PhotoActivity extends Activity {
 

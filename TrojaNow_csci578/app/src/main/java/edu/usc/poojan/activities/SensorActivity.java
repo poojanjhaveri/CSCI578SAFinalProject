@@ -1,4 +1,4 @@
-package edu.usc.poojan.trojanow;
+package edu.usc.poojan.activities;
 
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,8 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.content.Intent;
-
-import java.util.List;
 
 
 public class SensorActivity extends Activity implements SensorEventListener {

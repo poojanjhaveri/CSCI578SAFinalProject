@@ -1,4 +1,4 @@
-package edu.usc.poojan.trojanow;
+package edu.usc.poojan.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,8 +18,6 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
-
-import edu.usc.poojan.trojanow.R;
 
 public class LocationActivity extends Activity implements LocationListener {
 

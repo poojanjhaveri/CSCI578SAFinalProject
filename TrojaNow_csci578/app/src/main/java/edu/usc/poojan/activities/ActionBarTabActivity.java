@@ -1,4 +1,4 @@
-package edu.usc.poojan.trojanow;
+package edu.usc.poojan.activities;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;

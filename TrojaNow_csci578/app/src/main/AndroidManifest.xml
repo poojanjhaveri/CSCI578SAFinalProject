@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.usc.poojan.activities" >
+    package="edu.usc.trojanow.activities" >
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -20,37 +20,36 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light" >
         <activity
-            android:name="edu.usc.poojan.activities.LoginActivity"
+            android:name="edu.usc.trojanow.activities.LoginActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustResize|stateVisible" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.usc.poojan.activities.ActionBarTabActivity"
+            android:name="edu.usc.trojanow.activities.ActionBarTabActivity"
             android:label="@string/title_activity_feed" >
         </activity>
         <activity
-            android:name="edu.usc.poojan.activities.RegisterActivity"
+            android:name="edu.usc.trojanow.activities.RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:name="edu.usc.poojan.activities.PostThoughtActivity"
+            android:name="edu.usc.trojanow.activities.PostThoughtActivity"
             android:label="@string/title_activity_post_thought" >
         </activity>
         <activity
-            android:name="edu.usc.poojan.activities.PhotoActivity"
+            android:name="edu.usc.trojanow.activities.PhotoActivity"
             android:label="@string/title_activity_photo" >
         </activity>
         <activity
-            android:name="edu.usc.poojan.activities.SensorActivity"
+            android:name="edu.usc.trojanow.activities.SensorActivity"
             android:label="Add Sensor Info" >
         </activity>
         <activity
-            android:name="edu.usc.poojan.activities.LocationActivity"
+            android:name="edu.usc.trojanow.activities.LocationActivity"
             android:label="@string/title_activity_location" >
         </activity>
     </application>

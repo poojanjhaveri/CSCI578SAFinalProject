@@ -1,6 +1,4 @@
-package edu.usc.poojan.server;
-
-import com.parse.Parse;
+package edu.usc.trojanow.server;
 
 /**
  * Created by Trina Gregory on 4/28/15.

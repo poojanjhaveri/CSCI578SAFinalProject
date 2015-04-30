@@ -1,4 +1,4 @@
-package edu.usc.poojan.activities;
+package edu.usc.trojanow.activities;
 
 /**
  * Created by poojan on 4/20/15.

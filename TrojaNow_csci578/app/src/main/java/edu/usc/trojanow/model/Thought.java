@@ -1,4 +1,4 @@
-package edu.usc.poojan.model;
+package edu.usc.trojanow.model;
 
 /**
  * Created by poojan on 4/28/15.

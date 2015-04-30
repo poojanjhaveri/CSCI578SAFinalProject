@@ -1,4 +1,4 @@
-package edu.usc.poojan.activities;
+package edu.usc.trojanow.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -33,7 +33,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.usc.poojan.model.User;
+import edu.usc.trojanow.model.User;
 
 
 /**

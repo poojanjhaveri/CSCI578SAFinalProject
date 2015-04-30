@@ -1,4 +1,4 @@
-package edu.usc.poojan.activities;
+package edu.usc.trojanow.activities;
 
 
 import android.os.Bundle;

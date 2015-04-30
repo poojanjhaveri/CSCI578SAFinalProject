@@ -11,7 +11,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
+        android:inputType="textMultiLine|textCapSentences"
         android:ems="10"
         android:id="@+id/editText"
         android:layout_alignParentTop="true"
@@ -21,7 +21,8 @@
         android:layout_alignParentEnd="true"
         android:minLines="3"
         android:hint="@string/post_hint"
-        android:minHeight="60dp" />
+        android:minHeight="60dp"
+        android:autoText="false" />
 
     <Button
         android:layout_width="wrap_content"
@@ -62,7 +63,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignEnd="@+id/editText"
+        android:layout_marginTop="40dp" />
 
     <Button
         android:layout_width="wrap_content"

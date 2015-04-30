@@ -46,7 +46,7 @@
         </activity>
         <activity
             android:name="edu.usc.trojanow.activities.SensorActivity"
-            android:label="Add Sensor Info" >
+            android:label="Sensor" >
         </activity>
         <activity
             android:name="edu.usc.trojanow.activities.LocationActivity"

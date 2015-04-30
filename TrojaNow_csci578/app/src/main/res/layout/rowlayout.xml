@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:weightSum="1"
@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/userName"
-        android:layout_width="178dp"
-        android:layout_height="31dp"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
         android:text="userName"
         android:textSize="30px"
         android:textStyle="bold"
@@ -18,19 +18,20 @@
     </TextView>
 
     <TextView
-        android:layout_width="372dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/content"
         android:minLines="1"
         android:minHeight="40dp"
         android:maxLines="5"
+        android:textSize="20dp"
+        android:textColor="@color/color_red"
         android:maxWidth="60dp"
-        android:textSize="15dp"
-        android:textColor="#ffff4003" />
+        android:paddingTop="5dp" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/date"

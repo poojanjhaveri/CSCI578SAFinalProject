@@ -67,16 +67,16 @@ public class LocationActivity extends Activity implements LocationListener {
             @Override
             public void onClick(View view) {
 
-                String mcity ="";
+                String mCity = "";
                 if(cityText.getText().length()>0)
                 {
-                    mcity=new String(" in "+ cityText.getText().toString());
+                    mCity = " in " + cityText.getText().toString();
                 }
 
-                System.out.println ("city = " + mcity);
+                System.out.println ("city = " + mCity);
 
                 Intent intent = new Intent();
-                intent.putExtra("LocationInfo", mcity);
+                intent.putExtra("LocationInfo", mCity);
                 setResult(RESULT_OK, intent);
                 finish();
             }

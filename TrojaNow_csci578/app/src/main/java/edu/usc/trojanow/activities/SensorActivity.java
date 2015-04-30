@@ -14,7 +14,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.content.Intent;
 
-
+/**
+ * SensorActivity handles getting sensor data from the device.
+ * It will only display those sensors that are available depending on the client device.
+ */
 public class SensorActivity extends Activity implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor mTemperature;
@@ -139,13 +142,23 @@ public class SensorActivity extends Activity implements SensorEventListener {
                     mInfo = mInfo.concat(" The temperature is " + fTemperature + " degrees Celsius.");
                 }
                 if (fLight != 0) {
-                    mInfo = mInfo.concat(" The light is " + fLight + " SI lux.");
+                    if (fLight < 50) {
+                        mInfo = mInfo.concat(" It's dark (" + fLight + " lux).");
+                    } else if (fLight < 500) {
+                        mInfo = mInfo.concat(" It's not bright (" + fLight + " lux).");
+                    } else if (fLight < 1000) {
+                        mInfo = mInfo.concat(" It's light (" + fLight + " lux).");
+                    } else if (fLight < 3200) {
+                        mInfo = mInfo.concat(" It's bright (" + fLight + " lux).");
+                    } else {
+                        mInfo = mInfo.concat(" It's very bright (" + fLight + " lux).");
+                    }
                 }
                 if (fPressure != 0) {
                     mInfo = mInfo.concat(" The pressure is " + fPressure + " hPa.");
                 }
                 if (fHumidity != 0) {
-                    mInfo = mInfo.concat(" The pressure is " + fHumidity + "%.");
+                    mInfo = mInfo.concat(" The humidity is " + fHumidity + "%.");
                 }
                 System.out.println ("info = " + mInfo);
 
@@ -164,21 +177,6 @@ public class SensorActivity extends Activity implements SensorEventListener {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_sensor, menu);
         return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

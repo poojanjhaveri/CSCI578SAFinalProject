@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -57,7 +58,7 @@ public class PostThoughtActivity extends Activity {
 
                 EditText content = (EditText) findViewById(R.id.editText);
                 Switch anonymous = (Switch) findViewById(R.id.anoymousSwitch);
-                if(content.getText().length()>0) {
+                if (content.getText().length()>0) {
 
                     String anonymousString = "Anonymous";
                     ParseUser currentUser = ParseUser.getCurrentUser();
@@ -80,7 +81,9 @@ public class PostThoughtActivity extends Activity {
                 }
                 else
                 {
-                    // Invalid thought content. Display error or do not do anything
+                    // Invalid thought content. Display error
+                    Toast toast = Toast.makeText(getApplicationContext(), "Unable to post thought", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
         });

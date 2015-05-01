@@ -33,9 +33,6 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.usc.trojanow.model.User;
-
-
 /**
  * A login screen that offers login via email/password.
  */
@@ -43,7 +40,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     static String PARSE_APPLICATION_ID = "fI9EePHkFfD9GHUmNkoQtF9fgSqTFin3wyeupWuF";
     static String PARSE_CLIENT_KEY = "aRm6wWylGELtNY6vmzk5sviXRw31axHoZJFTH2JL";
-
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -62,7 +58,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         setContentView(R.layout.activity_login);
 
         Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
-        ParseObject.registerSubclass(User.class);
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
@@ -70,7 +65,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             Intent intent = new Intent(getApplicationContext(),ActionBarTabActivity.class);
             startActivity(intent);
         }
-
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -113,7 +107,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         getLoaderManager().initLoader(0, null, this);
     }
 
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
@@ -131,7 +124,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         boolean cancel = false;
         View focusView = null;
-
 
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
@@ -165,8 +157,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
 
-        //    mAuthTask = new UserLoginTask(email, password,this);
-        //    mAuthTask.execute((Void) null);
+            // mAuthTask = new UserLoginTask(email, password,this);
+            // mAuthTask.execute((Void) null);
 
             showProgress(true);
             ParseUser.logInInBackground(email, password, new LogInCallback() {
@@ -182,10 +174,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                         startActivity(intent);
 
                     } else {
-                        // Signup failed. Look at the ParseException to see what happened.
+                        // Sign up failed. Look at the ParseException to see what happened.
                         mPasswordView.setError(getString(R.string.error_incorrect_password));
                         mPasswordView.requestFocus();
-
                     }
                 }
             });
@@ -193,10 +184,18 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         }
     }
 
+    /**
+     * Since this is for USC students, we are requiring a USC email address.
+     */
     private boolean isEmailValid(String email) {
         return email.contains("@usc.edu");
     }
 
+    /**
+     * We are requiring that the password is greater than 4 characters.
+     * @param password
+     * @return true if password is valid
+     */
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return password.length() > 4;
@@ -282,16 +281,18 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         int IS_PRIMARY = 1;
     }
 
-
+    /**
+     * This adds emails to the auto complete list for a better user experience.
+     * @param emailAddressCollection
+     */
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
-        //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
+        // Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);
     }
-
 
 }
 

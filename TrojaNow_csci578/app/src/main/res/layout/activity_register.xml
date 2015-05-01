@@ -35,7 +35,8 @@
             android:layout_weight="0.06"
             android:hint="Name"
             android:layout_marginTop="20dp"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:capitalize="words" />
 
         <EditText
             android:layout_width="match_parent"

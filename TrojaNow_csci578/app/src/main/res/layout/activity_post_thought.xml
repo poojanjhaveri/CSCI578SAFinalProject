@@ -33,21 +33,23 @@
         android:paddingTop="10dp"
         android:textSize="@dimen/textsize_button"
         android:layout_alignTop="@+id/temperature"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/textViewInclude"
+        android:layout_toEndOf="@+id/textViewInclude"
+        android:layout_marginLeft="20dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_temperature"
         android:id="@+id/temperature"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:width="120dp"
         android:paddingTop="10dp"
-        android:layout_below="@+id/editText"
         android:layout_marginTop="20dp"
-        android:textSize="@dimen/textsize_button" />
+        android:textSize="@dimen/textsize_button"
+        android:layout_below="@+id/editText"
+        android:layout_toRightOf="@+id/location"
+        android:layout_toEndOf="@+id/location"
+        android:layout_marginLeft="20dp" />
 
     <Switch
         android:layout_width="wrap_content"
@@ -62,9 +64,7 @@
         android:layout_below="@+id/location"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="20dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -72,10 +72,11 @@
         android:text="@string/button_cancel"
         android:id="@+id/cancelbutton"
         android:width="120dp"
-        android:layout_alignParentBottom="true"
+        android:textSize="@dimen/textsize_button"
+        android:layout_below="@+id/anoymousSwitch"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textSize="@dimen/textsize_button" />
+        android:layout_marginTop="40dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -83,8 +84,22 @@
         android:text="@string/button_post"
         android:id="@+id/postthoughtbutton"
         android:width="120dp"
-        android:layout_alignParentBottom="true"
+        android:textSize="@dimen/textsize_button"
+        android:layout_below="@+id/anoymousSwitch"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/label_include"
+        android:id="@+id/textViewInclude"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/location"
+        android:layout_alignBottom="@+id/location"
+        android:paddingTop="10dp"
         android:textSize="@dimen/textsize_button" />
 </RelativeLayout>

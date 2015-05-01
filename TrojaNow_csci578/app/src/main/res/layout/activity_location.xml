@@ -15,7 +15,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:textSize="@dimen/textsize_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,26 +27,29 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textsize_button" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="latitude"
         android:id="@+id/latitude"
         android:layout_alignTop="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/textsize_button"
+        android:text="@string/text_empty" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="longitude"
         android:id="@+id/longitude"
         android:layout_alignTop="@+id/textView3"
         android:layout_alignLeft="@+id/latitude"
-        android:layout_alignStart="@+id/latitude" />
+        android:layout_alignStart="@+id/latitude"
+        android:textSize="@dimen/textsize_button"
+        android:text="@string/text_empty" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,38 +60,42 @@
         android:layout_marginTop="40dp"
         android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="@dimen/textsize_button" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="city name"
+        android:text="@string/text_empty"
         android:id="@+id/city"
         android:layout_alignTop="@+id/textView4"
         android:layout_alignLeft="@+id/longitude"
-        android:layout_alignStart="@+id/longitude" />
+        android:layout_alignStart="@+id/longitude"
+        android:textSize="@dimen/textsize_checkbox" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_cancel"
         android:id="@+id/cancelButton"
-        android:layout_alignParentBottom="true"
+        android:width="120dp"
+        android:textSize="@dimen/textsize_button"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:width="120dp"
-        android:textSize="@dimen/textsize_button" />
+        android:layout_marginTop="40dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_add"
         android:id="@+id/includeButton"
-        android:layout_alignParentBottom="true"
+        android:textSize="@dimen/textsize_button"
+        android:width="120dp"
+        android:layout_below="@+id/city"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="@dimen/textsize_button"
-        android:width="120dp" />
+        android:layout_marginTop="40dp" />
 
 </RelativeLayout>

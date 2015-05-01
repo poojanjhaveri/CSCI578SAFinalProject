@@ -57,11 +57,12 @@
         android:layout_height="wrap_content"
         android:text="@string/button_cancel"
         android:id="@+id/sensorcancelbutton"
-        android:layout_alignParentBottom="true"
+        android:width="120dp"
+        android:textSize="@dimen/textsize_button"
+        android:layout_below="@+id/checkBoxSensor4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:width="120dp"
-        android:textSize="@dimen/textsize_button" />
+        android:layout_marginTop="40dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -69,10 +70,10 @@
         android:layout_height="wrap_content"
         android:text="@string/button_add"
         android:id="@+id/sensorinfobutton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:width="120dp"
-        android:textSize="@dimen/textsize_button" />
+        android:textSize="@dimen/textsize_button"
+        android:layout_alignTop="@+id/sensorcancelbutton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

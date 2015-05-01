@@ -12,22 +12,17 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.ParseException;
 
-
+/**
+ * This activity allows the user to enter text to post as themselves or anonymously.
+ * The user can also include the current location by touching the Location button
+ * and/or sensors data by touching the Sensor button.
+ */
 public class PostThoughtActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_thought);
-
-//        Button PhotoButton = (Button) findViewById(R.id.cameraButton);
-//        PhotoButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(view.getContext(),PhotoActivity.class);
-//                startActivity(i);
-//            }
-//        });
 
         Button sensorButton = (Button) findViewById(R.id.temperature);
         sensorButton.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +32,6 @@ public class PostThoughtActivity extends Activity {
                 startActivityForResult(i, 1);
             }
         });
-
 
         Button locationButton = (Button) findViewById(R.id.location);
         locationButton.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +87,6 @@ public class PostThoughtActivity extends Activity {
 
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
@@ -128,9 +121,6 @@ public class PostThoughtActivity extends Activity {
                     }
                 }
             }
-
-
-
         }
     }
 

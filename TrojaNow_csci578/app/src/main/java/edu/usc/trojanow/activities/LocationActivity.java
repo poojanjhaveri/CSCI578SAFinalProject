@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * This activity gets and displays the current location, thus allowing
+ * the user to add it to the post.
+ */
 public class LocationActivity extends Activity implements LocationListener {
 
     private TextView latitudeField;

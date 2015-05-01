@@ -3,7 +3,10 @@ package edu.usc.trojanow.activities;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -92,6 +95,35 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
 
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+    }
+
+    // inner class
+    private class TabsPagerAdapter extends FragmentPagerAdapter {
+
+        public TabsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int index) {
+
+            switch (index) {
+                case 0:
+                    // Top Rated fragment activity
+                    return new FeedFragment();
+                case 1:
+                    return new ProfileFragment();
+            }
+
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            // get item count - equal to number of tabs
+            return 2;
+        }
 
     }
 }

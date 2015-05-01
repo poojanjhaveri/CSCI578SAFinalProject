@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by poojan on 4/28/15.
+ * Custom Row Adapter used to display posts in the feed or user's feed.
  */
 public class CustomRowAdapter extends ArrayAdapter<String> {
 
@@ -25,7 +25,6 @@ public class CustomRowAdapter extends ArrayAdapter<String> {
     private TextView tUserName;
     private TextView tContent;
     private TextView tDate;
-
 
     public CustomRowAdapter(Context context, List values) {
         super(context, R.layout.rowlayout, values);
@@ -39,17 +38,15 @@ public class CustomRowAdapter extends ArrayAdapter<String> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.rowlayout, parent, false);
 
-
         tUserName = (TextView) rowView.findViewById(R.id.userName);
         tContent = (TextView) rowView.findViewById(R.id.content);
         tDate = (TextView) rowView.findViewById(R.id.date);
-//        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
+        //ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
 
         //Parse Object
         ParseObject pobject = (ParseObject)values.get(position);
         tUserName.setText(pobject.get("username").toString());
         tContent.setText(pobject.get("content").toString());
-
 
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date date = pobject.getCreatedAt();
@@ -59,6 +56,5 @@ public class CustomRowAdapter extends ArrayAdapter<String> {
 
         return rowView;
     }
-
 
 }

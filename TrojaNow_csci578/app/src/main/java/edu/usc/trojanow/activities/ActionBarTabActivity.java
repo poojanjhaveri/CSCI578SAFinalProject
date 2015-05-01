@@ -14,23 +14,23 @@ import android.view.MenuItem;
 
 import com.parse.ParseUser;
 
-
+/**
+ * This is the main activity to display the feed.
+ */
 public class ActionBarTabActivity extends FragmentActivity implements ActionBar.TabListener {
 
     private ViewPager viewPager;
     private TabsPagerAdapter mAdapter;
     private ActionBar actionBar;
     // Tab titles
-    private String[] tabs = { "Feed", "Profile"};
-
+    private String[] tabs = {"Feed", "Profile"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("In Activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
-        // Initilization
+        // Initialization
         viewPager = (ViewPager) findViewById(R.id.pager);
         actionBar = this.getActionBar();
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
@@ -39,7 +39,6 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
         actionBar.setHomeButtonEnabled(false);
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
-
         // Adding Tabs
         for (String tab_name : tabs) {
             actionBar.addTab(actionBar.newTab().setText(tab_name)
@@ -47,14 +46,12 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_feed, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -70,7 +67,7 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
             {
                 // Log Out
                 ParseUser.logOut();
-                Intent intent = new Intent( getApplicationContext(), LoginActivity.class );
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 startActivity( intent );
             }
@@ -79,7 +76,6 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
 
         return true;
     }
-
 
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
@@ -122,8 +118,9 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
         @Override
         public int getCount() {
             // get item count - equal to number of tabs
-            return 2;
+            return tabs.length;
         }
 
     }
+
 }

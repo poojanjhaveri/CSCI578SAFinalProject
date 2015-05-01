@@ -1,6 +1,5 @@
 package edu.usc.trojanow.activities;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -14,12 +13,10 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-
 /**
- * A simple {@link Fragment} subclass.
+ * A ListFragment subclass used to display the feed that shows the user's posts.
  */
 public class ProfileFragment extends ListFragment {
-
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -32,19 +29,14 @@ public class ProfileFragment extends ListFragment {
 
     }
 
-
-
     @Override
     public void onResume() {
-
         //TODO : ProfileName set Text is not working. IT crashes
 //        TextView profileName = (TextView)getView().findViewById(R.id.profileName);
 //        profileName.setText(ParseUser.getCurrentUser().get("Name").toString());
         queryForThoughts();
         super.onResume();
     }
-
-
 
     public void queryForThoughts()
     {
@@ -64,6 +56,5 @@ public class ProfileFragment extends ListFragment {
             }
         });
     }
-
 
 }

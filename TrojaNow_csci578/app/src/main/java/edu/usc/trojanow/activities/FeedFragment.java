@@ -1,7 +1,5 @@
 package edu.usc.trojanow.activities;
 
-
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -14,24 +12,20 @@ import com.parse.ParseQuery;
 
 import java.util.List;
 
-
 /**
- * A simple {@link Fragment} subclass.
+ * A ListFragment subclass used to display the feed that shows all posts.
  */
 public class FeedFragment extends ListFragment {
-
 
     public FeedFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         queryForThoughts();
     }
-
 
     @Override
     public void onResume() {
@@ -40,8 +34,6 @@ public class FeedFragment extends ListFragment {
         super.onResume();
     }
 
-
-
     public void queryForThoughts()
     {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Thought");
@@ -49,8 +41,6 @@ public class FeedFragment extends ListFragment {
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> thoughtList, ParseException e) {
                 if (e == null) {
-
-
                     CustomRowAdapter adapter = new CustomRowAdapter(getActivity(),thoughtList);
                     setListAdapter(adapter);
                 } else {

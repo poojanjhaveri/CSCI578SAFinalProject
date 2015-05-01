@@ -1,4 +1,4 @@
-package edu.usc.trojanow.activities;
+package edu.usc.trojanow.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,6 +13,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import edu.usc.trojanow.activities.R;
 
 /**
  * Custom Row Adapter used to display posts in the feed or user's feed.

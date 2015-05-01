@@ -31,7 +31,6 @@ public class LocationActivity extends Activity implements LocationListener {
     private LocationManager locationManager;
     private String provider;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,19 +42,20 @@ public class LocationActivity extends Activity implements LocationListener {
 
         // Get the location manager
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        // Define the criteria how to select the location provider -> use
-        // default
+
+        // Define the criteria how to select the location provider -> use default
         Criteria criteria = new Criteria();
         provider = locationManager.getBestProvider(criteria, false);
         Location location = locationManager.getLastKnownLocation(provider);
 
         // Initialize the location fields
         if (location != null) {
-            System.out.println("Provider " + provider + " has been selected.");
+            // System.out.println("Provider " + provider + " has been selected.");
             onLocationChanged(location);
         } else {
-            latitudeField.setText("Location not available");
-            longitudeField.setText("Location not available");
+            latitudeField.setText(" ");
+            longitudeField.setText(" ");
+            cityText.setText("unknown location.");
         }
 
         Button cancelButton = (Button) findViewById(R.id.cancelButton);
@@ -74,10 +74,8 @@ public class LocationActivity extends Activity implements LocationListener {
                 String mCity = "";
                 if(cityText.getText().length()>0)
                 {
-                    mCity = " in " + cityText.getText().toString();
+                    mCity = " in " + cityText.getText().toString() + ".";
                 }
-
-                System.out.println ("city = " + mCity);
 
                 Intent intent = new Intent();
                 intent.putExtra("LocationInfo", mCity);
@@ -85,10 +83,6 @@ public class LocationActivity extends Activity implements LocationListener {
                 finish();
             }
         });
-
-
-
-
     }
 
     /* Request updates at startup */
@@ -98,7 +92,7 @@ public class LocationActivity extends Activity implements LocationListener {
         locationManager.requestLocationUpdates(provider, 400, 1, this);
     }
 
-    /* Remove the locationlistener updates when Activity is paused */
+    /* Remove the locationListener updates when Activity is paused */
     @Override
     protected void onPause() {
         super.onPause();
@@ -109,8 +103,7 @@ public class LocationActivity extends Activity implements LocationListener {
     public void onLocationChanged(Location location) {
         double fLat = location.getLatitude();
         double fLong = location.getLongitude();
-        int iLat = (int) fLat;
-        int iLong = (int) fLong;
+
         latitudeField.setText(String.format("%.2f", fLat));
         longitudeField.setText(String.format("%.2f", fLong));
 
@@ -120,14 +113,12 @@ public class LocationActivity extends Activity implements LocationListener {
 
         try {
             addresses = geocoder.getFromLocation(fLat, fLong, 1);
-            String city = addresses.get(0).getLocality() + ", " + addresses.get(0).getAdminArea() + ".";
+            String city = addresses.get(0).getLocality() + ", " + addresses.get(0).getAdminArea();
             cityText.setText(city);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
@@ -148,7 +139,5 @@ public class LocationActivity extends Activity implements LocationListener {
         Toast.makeText(this, "Disabled provider " + provider,
                 Toast.LENGTH_SHORT).show();
     }
-
-
 
 }

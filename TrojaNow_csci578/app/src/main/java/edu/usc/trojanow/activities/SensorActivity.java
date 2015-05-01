@@ -53,10 +53,8 @@ public class SensorActivity extends Activity implements SensorEventListener {
                 public void onClick(View v) {
 
                     if (tempCB.isChecked()) {
-                        System.out.println("tempCB: isChecked");
                         startSensor(mTemperature);
                     } else {
-                        System.out.println("tempCB: isNotChecked");
                         stopSensor(mTemperature);
                     }
 
@@ -161,7 +159,7 @@ public class SensorActivity extends Activity implements SensorEventListener {
                 if (fHumidity != 0) {
                     mInfo = mInfo.append(" The humidity is " + fHumidity + "%.");
                 }
-                System.out.println ("info = " + mInfo);
+//                System.out.println ("info = " + mInfo);
 
                 Intent intent = new Intent();
                 intent.putExtra("SensorInfo", mInfo.toString());
@@ -171,7 +169,6 @@ public class SensorActivity extends Activity implements SensorEventListener {
         });
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

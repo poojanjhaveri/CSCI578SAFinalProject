@@ -82,8 +82,16 @@ public class PostThoughtActivity extends Activity {
                 else
                 {
                     // Invalid thought content. Display error
+
+                    content.setError(getString(R.string.error_field_required));
+                    View focusView = null;
+                    focusView = content;
+                    focusView.requestFocus();
+
+                    /*
                     Toast toast = Toast.makeText(getApplicationContext(), "Unable to post thought", Toast.LENGTH_SHORT);
                     toast.show();
+                    */
                 }
             }
         });
@@ -96,7 +104,7 @@ public class PostThoughtActivity extends Activity {
         if(requestCode == 1 && resultCode == RESULT_OK){
             String sensorInfo = data.getStringExtra("SensorInfo");
             if(sensorInfo!=null) {
-                System.out.println("sensorInfo = " + sensorInfo);
+//                System.out.println("sensorInfo = " + sensorInfo);
                 if (sensorInfo.length() > 0) {
                     EditText content = (EditText) findViewById(R.id.editText);
                     String text = String.valueOf(content.getText());
@@ -112,7 +120,7 @@ public class PostThoughtActivity extends Activity {
 
             String locationInfo = data.getStringExtra("LocationInfo");
             if(locationInfo!=null) {
-                System.out.println("locationInfo = " + locationInfo);
+//                System.out.println("locationInfo = " + locationInfo);
                 if (locationInfo.length() > 0) {
                     EditText content = (EditText) findViewById(R.id.editText);
                     String text = String.valueOf(content.getText());

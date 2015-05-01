@@ -13,6 +13,8 @@ import com.parse.SignUpCallback;
 
 /**
  * This activity allows a new user to register. All text fields are required.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class RegisterActivity extends Activity {
 

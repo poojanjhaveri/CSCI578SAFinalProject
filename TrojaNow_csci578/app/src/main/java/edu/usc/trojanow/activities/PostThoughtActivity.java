@@ -17,6 +17,8 @@ import com.parse.ParseException;
  * This activity allows the user to enter text to post as themselves or anonymously.
  * The user can also include the current location by touching the Location button
  * and/or sensors data by touching the Sensor button.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class PostThoughtActivity extends Activity {
 

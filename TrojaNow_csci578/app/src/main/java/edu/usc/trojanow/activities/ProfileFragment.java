@@ -15,6 +15,8 @@ import java.util.List;
 
 /**
  * A ListFragment subclass used to display the feed that shows the user's posts.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class ProfileFragment extends ListFragment {
 

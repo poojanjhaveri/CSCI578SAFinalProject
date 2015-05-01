@@ -12,10 +12,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.parse.ParseUser;
+import edu.usc.trojanow.server.ServerManager;
 
 /**
  * This is the main activity to display the feed.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class ActionBarTabActivity extends FragmentActivity implements ActionBar.TabListener {
 
@@ -66,7 +68,7 @@ public class ActionBarTabActivity extends FragmentActivity implements ActionBar.
             case R.id.logout_button:
             {
                 // Log Out
-                ParseUser.logOut();
+                ServerManager.logOut();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP );
                 startActivity( intent );

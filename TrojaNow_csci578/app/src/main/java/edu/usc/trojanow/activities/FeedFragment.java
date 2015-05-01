@@ -14,6 +14,8 @@ import java.util.List;
 
 /**
  * A ListFragment subclass used to display the feed that shows all posts.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class FeedFragment extends ListFragment {
 

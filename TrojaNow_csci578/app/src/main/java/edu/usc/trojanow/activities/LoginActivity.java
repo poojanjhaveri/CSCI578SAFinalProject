@@ -27,19 +27,19 @@ import android.widget.TextView;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.usc.trojanow.server.ServerManager;
+
 /**
  * A login screen that offers login via email/password.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
-
-    static String PARSE_APPLICATION_ID = "fI9EePHkFfD9GHUmNkoQtF9fgSqTFin3wyeupWuF";
-    static String PARSE_CLIENT_KEY = "aRm6wWylGELtNY6vmzk5sviXRw31axHoZJFTH2JL";
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -57,7 +57,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Parse.initialize(this, PARSE_APPLICATION_ID, PARSE_CLIENT_KEY);
+        ServerManager.initialize(this);
 
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {

@@ -17,6 +17,8 @@ import android.content.Intent;
 /**
  * SensorActivity handles getting sensor data from the device.
  * It will only display those sensors that are available depending on the client device.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class SensorActivity extends Activity implements SensorEventListener {
     private SensorManager mSensorManager;

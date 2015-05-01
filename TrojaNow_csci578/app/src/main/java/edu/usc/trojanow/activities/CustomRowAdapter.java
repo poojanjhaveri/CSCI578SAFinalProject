@@ -16,6 +16,8 @@ import java.util.List;
 
 /**
  * Custom Row Adapter used to display posts in the feed or user's feed.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class CustomRowAdapter extends ArrayAdapter<String> {
 

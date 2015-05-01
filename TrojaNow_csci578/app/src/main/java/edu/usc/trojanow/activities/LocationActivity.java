@@ -22,6 +22,8 @@ import java.util.Locale;
 /**
  * This activity gets and displays the current location, thus allowing
  * the user to add it to the post.
+ * @author Trina Gregory, Poojan Jhaveri
+ * Created for CSCI-578, Spring 2015
  */
 public class LocationActivity extends Activity implements LocationListener {
 

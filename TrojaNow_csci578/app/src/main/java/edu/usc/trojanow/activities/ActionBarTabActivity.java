@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import edu.usc.trojanow.fragments.FeedFragment;
+import edu.usc.trojanow.fragments.ProfileFragment;
 import edu.usc.trojanow.server.ServerManager;
 
 /**
